@@ -1240,6 +1240,27 @@
                             </a>
                         </div>
                     </div>
+                    <!-- Project 4 -->
+<div class="project-slide">
+    <div class="project-icon">
+        <i class="fas fa-brain"></i>
+    </div>
+    <h3>Portfolio</h3>
+    <p>A personal portfolio website that showcases who I am, the skills I bring, and the projects I’ve built — all in one place.</p>
+    <div class="project-tech">
+        <span class="tech-tag">HTML</span>
+        <span class="tech-tag">CSS</span>
+        <span class="tech-tag">JavaScript</span>
+    </div>
+    <div class="project-links">
+        <a href="https://pavanisri2005.github.io/Portfolio/" target="_blank" class="btn btn-primary">
+            <i class="fas fa-external-link-alt"></i> Live Demo
+        </a>
+        <a href="https://github.com/pavanisri2005/Portfolio" target="_blank" class="btn btn-secondary">
+            <i class="fab fa-github"></i> View Code
+        </a>
+    </div>
+</div>
                 </div>
                 
                 <div class="carousel-nav">
@@ -1521,7 +1542,8 @@
         const nextBtn = document.getElementById('next-btn');
         const dots = document.querySelectorAll('.dot');
         let currentSlide = 0;
-        const totalSlides = 3;
+        const totalSlides = document.querySelectorAll('.project-slide').length;
+
 
         function updateCarousel() {
             const translateX = -currentSlide * 100;
