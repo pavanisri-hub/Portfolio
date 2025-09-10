@@ -432,18 +432,20 @@
                             </div>
                         </a>
                         
-                        <a href="https://github.com/pavanisri-hub" target="_blank" class="contact-link">
-                            <i class="fab fa-github" style="font-size: 1.5rem; color: #fff;"></i>
-                            <div>
-                                <strong>GitHub</strong>
-                                <div>Check out my code repositories</div>
-                            </div>
-                        </a>
+                        <a href="tel:+916305781437" class="contact-link">
+    <i class="fas fa-phone" style="font-size: 1.5rem; color: #27ae60;"></i>
+    <div>
+        <strong>Phone</strong>
+        <div>+91 6305781437</div>
+    </div>
+</a>
+
                     </div>
                 </div>
                 
                 <div class="contact-form fade-in">
-                    <form id="contact-form">
+                    <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="c733a301-09c6-4e8c-889d-3f4cf8f70c65">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" placeholder="Your Name" required>
@@ -465,7 +467,7 @@
                         </button>
                         
                         <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">
-                            <i class="fas fa-info-circle"></i> This is a demo form. Please use the contact links above to reach me directly.
+                            <i class="fas fa-info-circle"></i> Thanks For Contacting 
                         </p>
                     </form>
                 </div>
@@ -621,22 +623,41 @@
         // Auto-play carousel
         setInterval(nextSlide, 5000);
 
-        // Contact form handling
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const button = this.querySelector('.submit-btn');
-            const originalText = button.innerHTML;
-            
+       const form = document.getElementById("contact-form");
+//Contact Form //
+form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const button = this.querySelector('.submit-btn');
+    const originalText = button.innerHTML;
+
+    const formData = new FormData(form);
+    fetch(form.action, {
+        method: form.method,
+        body: formData,
+    })
+    .then(response => response.json())
+    .then(result => {
+        if (result.success) {
+            // Change button style
             button.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
             button.style.background = '#27ae60';
-            
+
+            // Reset form after 3 sec
             setTimeout(() => {
                 button.innerHTML = originalText;
                 button.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
-                this.reset();
+                form.reset();
             }, 3000);
-        });
+        } else {
+            alert("❌ Error: " + result.message);
+        }
+    })
+    .catch(error => {
+        alert("⚠️ Something went wrong!");
+        console.error(error);
+    });
+});
 
         // Mobile menu toggle
         const mobileMenu = document.getElementById('mobile-menu');
@@ -652,7 +673,7 @@
             const parallaxElements = document.querySelectorAll('.floating-element');
             
             parallaxElements.forEach((element, index) => {
-                const speed = 0.5 + (index * 0.1);
+                const speed = 1.5 + (index * 0.1);
                 element.style.transform = `translateY(${scrolled * speed}px)`;
             });
         });
@@ -721,7 +742,11 @@
   setTimeout(function() {
     document.getElementById('splash').style.display = 'none';
     document.getElementById('main-content').style.display = 'block';
+<<<<<<< HEAD
   }, 3000); // 3 seconds
+=======
+  }, 3000); // 2 seconds
+>>>>>>> c06ea31 (Update in Contacct section)
 
 
     </script>

@@ -10,17 +10,18 @@
             scroll-behavior: smooth;
         }
         
-        /* Navigation Styles */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            transition: all 0.3s ease;
-        }
+    
+       /* Navigation Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 999; /* This is what you already have */
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+}
         
         .navbar.scrolled {
             background: rgba(255, 255, 255, 0.98);
@@ -120,6 +121,9 @@
             z-index: 2;
             max-width: 800px;
             padding: 0 2rem;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
         }
         
         .hero-avatar {
@@ -898,6 +902,14 @@
         }
         
         /* Responsive Design */
+
+        @media (max-width: 768px) {
+    /* ... other styles */
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
@@ -1139,7 +1151,11 @@ img {
     transform: scale(0);
     opacity: 0;
   }
+<<<<<<< HEAD
 }
 
 
 
+=======
+}
+>>>>>>> c06ea31 (Update in Contacct section)
