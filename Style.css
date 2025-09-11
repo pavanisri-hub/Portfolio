@@ -127,16 +127,18 @@
         }
         
         .hero-avatar {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            margin: 0 auto 2rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            animation: pulse 2s ease-in-out infinite;
-            position: relative;
-            overflow: hidden;
-            border: 5px solid rgba(255, 255, 255, 0.3);
-        }
+    width: 25vw;  /* 25% of viewport width */
+    max-width: 200px;  /* don’t let it grow too big */
+    aspect-ratio: 1/1; /* keep it a square */
+    border-radius: 50%;
+    margin: 0 auto 2rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    animation: pulse 2s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+}
+
         
         .hero-avatar::before {
             content: '';
@@ -151,13 +153,12 @@
         }
         
         .hero-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-            z-index: 1;
-            position: relative;
-        }
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
         
         .hero h1 {
             font-size: 4rem;
@@ -1156,5 +1157,16 @@ img {
 
 
 
+@media (max-width: 600px) {
+  .hero-avatar {
+    max-width: 120px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-avatar {
+    max-width: 250px;
+  }
+}
 
 
