@@ -476,125 +476,126 @@
             transform: scale(1.05);
         }
         
-        /* Projects Section */
-        .projects {
-            padding: 8rem 0;
-            background: 
-                        url('Images/img3.png');
-            color: white;
-            position: relative;
-        }
-        
-        .projects .section-title {
-            color: white;
-        }
-        
-        .projects-carousel {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 20px;
-        }
-        
-        .carousel-container {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-        
-        .project-slide {
-            min-width: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 3rem;
-            border-radius: 20px;
-            margin: 0 1rem;
-            text-align: center;
-        }
-        
-        .project-icon {
-            font-size: 4rem;
-            margin-bottom: 2rem;
-            color: black;
-        }
-        
-        .project-slide h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .project-slide p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-        
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            justify-content: center;
-            margin-bottom: 2rem;
-        }
-        
-        .tech-tag {
-            padding: 0.3rem 0.8rem;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            font-size: 0.8rem;
-        }
-        
-        .project-links {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-        }
-        
-        .carousel-nav {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-        
-        .carousel-btn {
-            width: 50px;
-            height: 50px;
-            border: none;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .carousel-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.1);
-        }
-        
-        .carousel-dots {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-        
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .dot.active {
-            background: white;
-            transform: scale(1.2);
-        }
+       /* Projects Section */
+.projects {
+    padding: 8rem 0;
+    background: url('Images/img3.png');
+    color: white;
+    position: relative;
+}
+
+.projects .section-title {
+    color: white;
+}
+
+.projects-carousel {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 2rem; /* The new change: This creates a 2rem space between each slide. */
+}
+
+.project-slide {
+    flex: 0 0 100%; /* Important: This ensures each slide is exactly 100% of the container's width. */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+    overflow: hidden;
+    /* The old margin property has been removed, as the 'gap' property now handles the spacing. */
+}
+
+.project-icon {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    color: black;
+}
+
+.project-slide h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.project-slide p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.tech-tag {
+    padding: 0.3rem 0.8rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    font-size: 0.8rem;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.carousel-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.carousel-btn {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: white;
+    transform: scale(1.2);
+}
         
         /* Achievements Section */
         .achievements {

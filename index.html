@@ -615,46 +615,66 @@
             observer.observe(el);
         });
 
-        // Projects Carousel
-        const carouselContainer = document.getElementById('carousel-container');
-        const prevBtn = document.getElementById('prev-btn');
-        const nextBtn = document.getElementById('next-btn');
-        const dots = document.querySelectorAll('.dot');
-        let currentSlide = 0;
-        const totalSlides = document.querySelectorAll('.project-slide').length;
+       // Projects Carousel
 
+const carouselContainer = document.getElementById('carousel-container');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+const dots = document.querySelectorAll('.dot');
+let currentSlide = 0;
+const totalSlides = document.querySelectorAll('.project-slide').length;
 
-        function updateCarousel() {
-            const translateX = -currentSlide * 100;
-            carouselContainer.style.transform = `translateX(${translateX}%)`;
-            
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
-            });
-        }
+// This function updates the carousel's position and dot indicators
+function updateCarousel() {
+    // The corrected formula accounts for both the slide width (100%) and the gap (2rem)
+    const translateX = `calc(-${currentSlide * 100}% - ${currentSlide * 2}rem)`;
+    carouselContainer.style.transform = `translateX(${translateX})`;
+    
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+    });
+}
 
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            updateCarousel();
-        }
+// Function to move to the next slide
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateCarousel();
+}
 
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-            updateCarousel();
-        }
+// Function to move to the previous slide
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateCarousel();
+}
 
-        nextBtn.addEventListener('click', nextSlide);
-        prevBtn.addEventListener('click', prevSlide);
+// Event listeners for navigation buttons
+nextBtn.addEventListener('click', nextSlide);
+prevBtn.addEventListener('click', prevSlide);
 
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                currentSlide = index;
-                updateCarousel();
-            });
-        });
+// Event listeners for dots to jump to a specific slide
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        currentSlide = index;
+        updateCarousel();
+    });
+});
 
-        // Auto-play carousel
-        setInterval(nextSlide, 5000);
+// Auto-play carousel, pauses on user interaction
+let autoPlayInterval = setInterval(nextSlide, 5000);
+
+// Stop autoplay on hover over the carousel
+const projectsCarousel = document.querySelector('.projects-carousel');
+projectsCarousel.addEventListener('mouseenter', () => {
+    clearInterval(autoPlayInterval);
+});
+
+// Resume autoplay when the mouse leaves the carousel
+projectsCarousel.addEventListener('mouseleave', () => {
+    autoPlayInterval = setInterval(nextSlide, 5000);
+});
+
+// Initial update to set the carousel to the first slide
+updateCarousel();
 
        const form = document.getElementById("contact-form");
 //Contact Form //
